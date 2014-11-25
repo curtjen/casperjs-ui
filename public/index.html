@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CasperJS-UI</title>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="media/css/main.css">
+</head>
+<body>
+<section id="main">
+  <section id="content">
+    <header>
+      <h1>CasperJS-UI</h1>
+    </header>
+    <section id="sidebar-left">
+      <ul id="casp-tabs">
+        <li>Blocks</li>
+        <li>Actions</li>
+        <li>Assertions</li>
+      </ul>
+      <div id="tab-blocks" class="tab">
+        <p>Drag block from here to your workspace to the right.</p>
+        <ul class="tab-widgets">
+          <li class="btn">open()</li>
+          <li class="btn">run()</li>
+          <li class="btn">start()</li>
+          <li class="btn">then()</li>
+          <li class="btn">wait()</li>
+          <li class="btn">waitFor()</li>
+          <li class="btn">waitForPopup()</li>
+          <li class="btn">waitForText()</li>
+          <li class="btn">withPopup()</li>
+        </ul>
+      </div>
+      <div id="tab-actions" class="tab"></div>
+      <div id="tab-assertions" class="tab"></div>
+    </section>
+    <section id="workspace">
+      <article>
+        <div class="casp-block">
+          <div class="casp-heading">
+            <span class="casp-title">then()</span>
+            <span class="label">LABEL</span>
+            <a href="#">edit</a>
+            <i class="fa fa-chevron-down"></i>
+          </div>
+          <article>
+            <div class="casp-block">
+              <div class="casp-heading">
+                <span class="casp-title">then()</span>
+                <span class="label">LABEL</span>
+                <a href="#">edit</a>
+                <i class="fa fa-chevron-down"></i>
+              </div>
+              <article>
+                <div class="casp-block">
+                  <div class="casp-heading">
+                    <span class="casp-title">click()</span>
+                    <span class="label">LABEL</span>
+                    <a href="#">edit</a>
+                  </div>
+                </div>
+                <div class="casp-timeout">
+                  <div class="casp-heading">
+                    <span class="casp-title">timeout()</span>
+                    <span class="label">LABEL</span>
+                    <a href="#">edit</a>
+                    <i class="fa fa-chevron-down"></i>
+                  </div>
+                  <article>
+                    <div class="casp-heading">
+                      <span class="casp-title">capture()</span>
+                      <span class="label">LABEL</span>
+                      <a href="#">edit</a>
+                    </div>
+                  </article>
+                </div>
+              </article>
+            </div>
+          </article>
+        </div>
+      </article>
+
+    </section>
+  </section>
+  <section id="sidebar-right">
+    <div id="code-preview">
+      <header class="heading">
+        <h2>Code Preview</h2>
+        <a href="#">save</a>
+        <a href="#">open</a>
+      </header>
+    </div>
+    <div id="console">
+      <header class="heading">
+        <h2>Console</h2>
+        <span class="">file path:</span>
+        <span>path/to/file.js</span>
+        <a href="#">run</a>
+      </header>
+    </div>
+  </section>
+</section>
+
+<!-- JS -->
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="media/js/Readmore.js/readmore.min.js"></script>
+
+</body>
+</html>

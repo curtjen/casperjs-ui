@@ -4,6 +4,8 @@
   <title>CasperJS-UI</title>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="media/css/main.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
 </head>
 <body>
 <section id="main">
@@ -13,9 +15,9 @@
     </header>
     <section id="sidebar-left">
       <ul id="casp-tabs">
-        <li>Blocks</li>
-        <li>Actions</li>
-        <li>Assertions</li>
+        <li><a href="#tab-blocks">Blocks</a></li>
+        <li><a href="#tab-actions">Actions</a></li>
+        <li><a href="#tab-assertions">Assertions</a></li>
       </ul>
       <div id="tab-blocks" class="tab">
         <p>Drag block from here to your workspace to the right.</p>
@@ -35,50 +37,53 @@
       <div id="tab-assertions" class="tab"></div>
     </section>
     <section id="workspace">
-      <article>
-        <div class="casp-block">
+
+      <ul class="workspace">
+        <li class="casp-block">
           <div class="casp-heading">
             <span class="casp-title">then()</span>
             <span class="label">LABEL</span>
             <a href="#">edit</a>
-            <i class="fa fa-chevron-down"></i>
+            <i class="fa fa-chevron-down toggle-btn" data-ref="1"></i>
           </div>
-          <article>
-            <div class="casp-block">
+          <ul class="toggle-1">
+            <li class="casp-block">
               <div class="casp-heading">
                 <span class="casp-title">then()</span>
                 <span class="label">LABEL</span>
-                <a href="#">edit</a>
-                <i class="fa fa-chevron-down"></i>
+                <i class="fa fa-pencil-square-o"></i>
+                <i class="fa fa-chevron-down toggle-btn" data-ref="2"></i>
               </div>
-              <article>
-                <div class="casp-block">
+              <ul class="toggle-2">
+                <li class="casp-block">
                   <div class="casp-heading">
                     <span class="casp-title">click()</span>
                     <span class="label">LABEL</span>
                     <a href="#">edit</a>
                   </div>
-                </div>
+                </li>
                 <div class="casp-timeout">
                   <div class="casp-heading">
                     <span class="casp-title">timeout()</span>
                     <span class="label">LABEL</span>
                     <a href="#">edit</a>
-                    <i class="fa fa-chevron-down"></i>
+                    <i class="fa fa-chevron-down toggle-btn" data-ref="3"></i>
                   </div>
-                  <article>
-                    <div class="casp-heading">
-                      <span class="casp-title">capture()</span>
-                      <span class="label">LABEL</span>
-                      <a href="#">edit</a>
-                    </div>
-                  </article>
-                </div>
-              </article>
-            </div>
-          </article>
-        </div>
-      </article>
+                  <ul class="toggle-3">
+                    <li>
+                      <div class="casp-heading">
+                        <span class="casp-title">capture()</span>
+                        <span class="label">LABEL</span>
+                        <a href="#">edit</a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
 
     </section>
   </section>
@@ -101,9 +106,13 @@
   </section>
 </section>
 
-<!-- JS -->
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="media/js/Readmore.js/readmore.min.js"></script>
-
 </body>
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="media/js/jquery-sortable.js"></script>
+<script src="media/js/main.js"></script>
+<script type="text/javascript">
+
+</script>
 </html>

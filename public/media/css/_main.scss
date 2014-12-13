@@ -26,8 +26,16 @@ $near-white: #ececec;
 //   Color assignments
 $cta-back: $limey-green;
 $cta-border: $chocalate-brown;
+
 $btn-shadow: $near-black;
 
+$header-back: $chocalate-brown;
+$header-text: $seashell-tan;
+$header-text-shadow: #bababa;
+
+$casp-heading-back: $seashell-tan;
+
+$link-text: $cherry-red;
 
 $sb-border: $near-black;
 $sb-shadow: $near-black;
@@ -57,6 +65,12 @@ $ws-nesting-width: 2em;
 body {
   font-family: 'Source Code Pro', sans-serif;
   font-size: 1em;
+  color: $chocalate-brown;
+}
+
+a {
+  text-decoration: none;
+  color: $link-text;
 }
 
 //   Buttons
@@ -84,16 +98,17 @@ body {
   position: absolute;
   left: 0px;
   header {
-    background: #ccc;
+    background: $header-back;
     height: 68px;
     line-height: 68px;
     padding-left: 20px;
     vertical-align: top;
     margin: 0;
     h1 {
+      color: $header-text;
       font-size: 3em;
       font-weight: 200;
-      text-shadow: 1px 1px 3px #888;
+      text-shadow: 4px 2px 4px $header-text-shadow;
     }
   }
 }
@@ -140,12 +155,17 @@ body {
   margin-left: 33%;
   height: 100vh;
   .casp-heading {
-    background: pink;
+    background: $casp-heading-back;
     margin-bottom: 0.5em;
+    //position: relative;
   }
-  article {
-    article {
+  ul {
+    list-style: none;
+    ul {
       margin-left: $ws-nesting-width;
+    }
+    li {
+      cursor: pointer;
     }
   }
   i {
@@ -180,3 +200,12 @@ header.heading {
   }
 }
 
+.nested_with_switch {
+  cursor: pointer;
+}
+
+
+// JQuiry UI styles:
+#ui-tabs-nav {
+  color: red;
+}

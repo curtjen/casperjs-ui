@@ -5,7 +5,12 @@
 
 body {
   font-family: 'Source Code Pro', sans-serif;
-  font-size: 1em; }
+  font-size: 1em;
+  color: #210800; }
+
+a {
+  text-decoration: none;
+  color: #8B2A29; }
 
 .btn {
   border-radius: 8px;
@@ -25,16 +30,17 @@ body {
   position: absolute;
   left: 0px; }
   #content header {
-    background: #ccc;
+    background: #210800;
     height: 68px;
     line-height: 68px;
     padding-left: 20px;
     vertical-align: top;
     margin: 0; }
     #content header h1 {
+      color: #D8B699;
       font-size: 3em;
       font-weight: 200;
-      text-shadow: 1px 1px 3px #888; }
+      text-shadow: 4px 2px 4px #bababa; }
 
 #sidebar-left {
   width: 33%;
@@ -67,10 +73,14 @@ body {
   margin-left: 33%;
   height: 100vh; }
   #workspace .casp-heading {
-    background: pink;
+    background: #D8B699;
     margin-bottom: 0.5em; }
-  #workspace article article {
-    margin-left: 2em; }
+  #workspace ul {
+    list-style: none; }
+    #workspace ul ul {
+      margin-left: 2em; }
+    #workspace ul li {
+      cursor: pointer; }
   #workspace i {
     float: right; }
 
@@ -93,3 +103,9 @@ body {
 
 header.heading * {
   display: inline-block; }
+
+.nested_with_switch {
+  cursor: pointer; }
+
+#ui-tabs-nav {
+  color: red; }

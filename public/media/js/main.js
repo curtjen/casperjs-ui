@@ -22,45 +22,40 @@ $(function () {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-/*
-$("ol.simple_with_drop").sortable({
+// Drag and drop
+$("ul.tab-widgets").sortable({
   group: 'no-drop',
-  handle: 'i.icon-move',
+  drop: false,
   onDragStart: function (item, container, _super) {
-    // Duplicate items of the no drop area
     if(!container.options.drop) {
       item.clone().insertAfter(item);
+      item.children(".casp-heading").show();
+      item.children(".widget-title").hide();
+      item.addClass("casp-block");
+      item.removeClass("btn");
+      item.children("ul.casp-block").show();
     }
     _super(item);
   }
-});
-$("ol.nested_with_switch-no-drop").sortable({
-  group: 'no-drop',
-  drop: false
 });
 $("ol.simple_with_no_drag").sortable({
   group: 'no-drop',
   drag: false
 });
 
-*/
 
-
-
+// Drag and drop - Nesting workspace
 var oldContainer;
-$("ul.workspace").sortable({
-  group: 'nested',
+$("ul.workspace-blocks").sortable({
+  group: 'no-drop',
+
+  onDragStart: function (item, container, _super) {
+    // Duplicate items of the no drop area
+    if(!container.options.drop) {
+      item.clone().insertAfter(item);
+    }
+    _super(item);
+  },
   afterMove: function (placeholder, container) {
     if(oldContainer !== container){
       if(oldContainer) {
@@ -73,9 +68,11 @@ $("ul.workspace").sortable({
   },
   onDrop: function (item, container, _super) {
     container.el.removeClass("active");
+
+    //container.$(".casp-heading").addClass("yo");
     _super(item);
+  },
+  onCancel: function (item) {
+    item.sortable('cancel');
   }
 });
-
-
-

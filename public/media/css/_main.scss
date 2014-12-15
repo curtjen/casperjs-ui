@@ -161,6 +161,7 @@ a {
   }
   ul {
     list-style: none;
+    margin-left: $ws-nesting-width;
     ul {
       margin-left: $ws-nesting-width;
     }
@@ -205,7 +206,42 @@ header.heading {
 }
 
 
-// JQuiry UI styles:
+
+//    Drag and drop styles:
+.placeholder {
+  //background: green !important;
+  heigt: 10em;
+  display: inline-block;
+  &:after {
+    content: '.......';
+  }
+}
+
+body.dragging, body.dragging * {
+  cursor: move !important; }
+
+.dragged {
+  position: absolute;
+  top: 0;
+  opacity: 0.5;
+  z-index: 2000; }
+
+.hidden {
+  display: none;
+}
+
+
+//   JQuiry UI styles:
 #ui-tabs-nav {
   color: red;
+}
+
+
+
+
+.yo {
+  color: red !important;
+  height: 10em;
+  background: yellow;
+
 }

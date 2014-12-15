@@ -1,0 +1,1 @@
+var http=require("http"),fs=require("fs");http.createServer(function(e,t){t.writeHead(200,{"Content-Type":"text/plain"}),t.end("Hello World\n")}).listen(5757,"127.0.0.1"),console.log("Server running at http://127.0.0.1:5757/"),fs.writeFile("message.txt","Hello Node",function(e){if(e)throw e;console.log("It's saved!")});

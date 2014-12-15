@@ -3,8 +3,9 @@
 <head>
   <title>CasperJS-UI</title>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="media/css/prism/prism.css">
   <link rel="stylesheet" href="media/css/main.css">
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 
 </head>
 <body>
@@ -105,21 +106,36 @@
     </section>
   </section>
   <section id="sidebar-right">
-    <div id="code-preview">
+    <div id="code-preview-cont">
       <header class="heading">
         <h2>Code Preview</h2>
         <a href="#">save</a>
         <a href="#">open</a>
       </header>
+      <section id="code-preview">
+        <pre><code class="language-javascript">
+var casper = require('casper').create();
+
+casper.start('http://casperjs.org/', function() {
+    this.echo(this.getTitle());
+});
+
+casper.thenOpen('http://phantomjs.org', function() {
+    this.echo(this.getTitle());
+});
+
+casper.run();
+        </code></pre>
+      </section>
     </div>
-    <div id="console">
+<!--    <div id="console">
       <header class="heading">
         <h2>Console</h2>
         <span class="">file path:</span>
         <span>path/to/file.js</span>
         <a href="#">run</a>
       </header>
-    </div>
+    </div>-->
   </section>
 </section>
 
@@ -128,7 +144,7 @@
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script src="media/js/jquery-sortable/jquery-sortable.js"></script>
-
+<script src="media/js/prism/prism.js"></script>
 <script src="media/js/main.js"></script>
 <script type="text/javascript">
 </script>

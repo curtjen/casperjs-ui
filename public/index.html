@@ -56,51 +56,49 @@
     </section>
     <section id="workspace">
 
-      <ul class="workspace-blocks">
-        <li class="casp-block">
-          <div class="casp-heading">
-            <span class="casp-title">then()</span>
-            <span class="label">LABEL</span>
-            <a href="#">edit</a>
-            <i class="fa fa-chevron-down toggle-btn" data-ref="1"></i>
-          </div>
-          <ul class="toggle-1">
+      <ul class="workspace-blocks" id="workspace-block-1">
+
+        <script id="hb-workspace" type="text/x-handlebars-template">
+          {{#each myTest}}
             <li class="casp-block">
               <div class="casp-heading">
-                <span class="casp-title">then()</span>
-                <span class="label">LABEL</span>
-                <i class="fa fa-pencil-square-o"></i>
-                <i class="fa fa-chevron-down toggle-btn" data-ref="2"></i>
+                <span class="casp-title">{{title}}</span>
+                <span class="label">{{options.msg}}</span>
+                <a href="#">edit</a>
+                <i class="fa fa-chevron-down toggle-btn"></i>
               </div>
-              <ul class="toggle-2">
-                <li class="casp-block">
-                  <div class="casp-heading">
-                    <span class="casp-title">click()</span>
-                    <span class="label">LABEL</span>
-                    <a href="#">edit</a>
-                  </div>
-                </li>
-                <div class="casp-timeout">
-                  <div class="casp-heading">
-                    <span class="casp-title">timeout()</span>
-                    <span class="label">LABEL</span>
-                    <a href="#">edit</a>
-                    <i class="fa fa-chevron-down toggle-btn" data-ref="3"></i>
-                  </div>
-                  <ul class="toggle-3">
-                    <li>
+              {{#if children}}
+                <ul class="toggle-1">
+                  {{#each children}}
+                    <li class="casp-block">
                       <div class="casp-heading">
-                        <span class="casp-title">capture()</span>
-                        <span class="label">LABEL</span>
+                        <span class="casp-title">{{title}}</span>
+                        <span class="label">{{options.msg}}</span>
                         <a href="#">edit</a>
+                        <i class="fa fa-chevron-down toggle-btn"></i>
                       </div>
+                      {{#if children}}
+                        <ul>
+                          {{#each children}}
+                            <li class="casp-block">
+                              <div class="casp-heading">
+                                <span class="casp-title">{{title}}</span>
+                                <span class="label">{{options.msg}}</span>
+                                <a href="#">edit</a>
+                                <i class="fa fa-chevron-down toggle-btn"></i>
+                              </div>
+                            </li>
+                          {{/each}}
+                        </ul>
+                      {{/if}}
                     </li>
-                  </ul>
-                </li>
-              </ul>
+                  {{/each}}
+                </ul>
+              {{/if}}
             </li>
-          </ul>
-        </li>
+          {{/each}}
+        </script>
+
       </ul>
 
     </section>
@@ -145,7 +143,61 @@ casper.run();
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script src="media/js/jquery-sortable/jquery-sortable.js"></script>
 <script src="media/js/prism/prism.js"></script>
+<script src="media/js/handlebars/handlebars-v2.0.0.js"></script>
 <script src="media/js/main.js"></script>
 <script type="text/javascript">
+console.log(Handlebars.VERSION);
+
+var theData =
+{
+  myTest: [
+    {
+      title: "start()",
+      options: {
+          msg: "This is the beginning",
+          url: "http://google.com"
+        },
+      children: [
+        {
+          title: "then()",
+          options: {
+            msg: "## then it started."
+          },
+          children: [
+            {
+              title: "click()",
+              options: {
+                msg: "### clicked it"
+              }
+            },
+            {
+              title: "capture()",
+              options: {
+                msg: "### capture taken."
+              }
+            }
+          ]
+        },
+        {
+          title: "then()",
+          options: {
+            msg: "## then it continued."
+          },
+          children: [
+            {
+              title: "click()",
+              options: {
+                msg: "### clicked something else"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+var source = $("#hb-workspace").html();
+var template = Handlebars.compile(source);
+$("#workspace-block-1").append(template(theData));
 </script>
 </html>

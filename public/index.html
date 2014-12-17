@@ -144,9 +144,9 @@ casper.run();
 <script src="media/js/jquery-sortable/jquery-sortable.js"></script>
 <script src="media/js/prism/prism.js"></script>
 <script src="media/js/handlebars/handlebars-v2.0.0.js"></script>
+<script src="app/casper/methods/casper_templates.js"></script>
 <script src="media/js/main.js"></script>
 <script type="text/javascript">
-console.log(Handlebars.VERSION);
 
 var theData =
 {
@@ -158,46 +158,9 @@ var theData =
           url: "http://google.com"
         },
       children: [
-        {
-          title: "then()",
-          options: {
-            msg: "## then it started."
-          },
-          children: [
-            {
-              title: "click()",
-              options: {
-                msg: "### clicked it"
-              }
-            },
-            {
-              title: "capture()",
-              options: {
-                msg: "### capture taken."
-              }
-            }
-          ]
-        },
-        {
-          title: "then()",
-          options: {
-            msg: "## then it continued."
-          },
-          children: [
-            {
-              title: "click()",
-              options: {
-                msg: "### clicked something else"
-              }
-            }
-          ]
-        }
       ]
     }
   ]
 };
-var source = $("#hb-workspace").html();
-var template = Handlebars.compile(source);
-$("#workspace-block-1").append(template(theData));
 </script>
 </html>

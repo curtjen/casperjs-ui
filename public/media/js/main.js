@@ -76,3 +76,14 @@ $("ul.workspace-blocks").sortable({
     item.sortable('cancel');
   }
 });
+
+
+// Load test object into workspace
+function update() {
+  var source = $("#hb-workspace").html();
+  var template = Handlebars.compile(source);
+  $("#workspace-block-1").html('').append(template(theData));
+}
+$(function() {
+  update();
+})

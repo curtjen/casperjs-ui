@@ -158,6 +158,42 @@ var theData =
           url: "http://google.com"
         },
       children: [
+        {
+          title: "then()",
+          options: {
+            msg: "## then it started."
+          },
+          children: [
+            {
+              title: "click()",
+              options: {
+                msg: "### clicked it"
+              }
+
+            },
+            {
+              title: "capture()",
+              options: {
+                msg: "### capture taken."
+              }
+
+            }
+          ]
+        },
+        {
+          title: "then()",
+          options: {
+            msg: "## then it continued."
+          },
+          children: [
+            {
+              title: "click()",
+              options: {
+                msg: "### clicked something else"
+              }
+            }
+          ]
+        }
       ]
     }
   ]

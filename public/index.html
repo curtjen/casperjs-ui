@@ -59,44 +59,7 @@
       <ul class="workspace-blocks" id="workspace-block-1">
 
         <script id="hb-workspace" type="text/x-handlebars-template">
-          {{#each myTest}}
-            <li class="casp-block">
-              <div class="casp-heading">
-                <span class="casp-title">{{title}}</span>
-                <span class="label">{{options.msg}}</span>
-                <a href="#">edit</a>
-                <i class="fa fa-chevron-down toggle-btn"></i>
-              </div>
-              {{#if children}}
-                <ul class="toggle-1">
-                  {{#each children}}
-                    <li class="casp-block">
-                      <div class="casp-heading">
-                        <span class="casp-title">{{title}}</span>
-                        <span class="label">{{options.msg}}</span>
-                        <a href="#">edit</a>
-                        <i class="fa fa-chevron-down toggle-btn"></i>
-                      </div>
-                      {{#if children}}
-                        <ul>
-                          {{#each children}}
-                            <li class="casp-block">
-                              <div class="casp-heading">
-                                <span class="casp-title">{{title}}</span>
-                                <span class="label">{{options.msg}}</span>
-                                <a href="#">edit</a>
-                                <i class="fa fa-chevron-down toggle-btn"></i>
-                              </div>
-                            </li>
-                          {{/each}}
-                        </ul>
-                      {{/if}}
-                    </li>
-                  {{/each}}
-                </ul>
-              {{/if}}
-            </li>
-          {{/each}}
+          {{theData}}
         </script>
 
       </ul>
@@ -111,10 +74,12 @@
         <a href="#">open</a>
       </header>
       <section id="code-preview">
-        <pre><code class="language-javascript">
+        <pre><code class="language-javascript" id="code-preview-code">
+          <script id="hb-code-preview" type="text/x-handlebars-template">
+{{#myTest}}
 var casper = require('casper').create();
 
-casper.start('http://casperjs.org/', function() {
+casper.{{title}}('{{options.args.url}}', function() {
     this.echo(this.getTitle());
 });
 
@@ -123,6 +88,8 @@ casper.thenOpen('http://phantomjs.org', function() {
 });
 
 casper.run();
+{{/myTest}}
+          </script>
         </code></pre>
       </section>
     </div>
@@ -144,15 +111,62 @@ casper.run();
 <script src="media/js/jquery-sortable/jquery-sortable.js"></script>
 <script src="media/js/prism/prism.js"></script>
 <script src="media/js/handlebars/handlebars-v2.0.0.js"></script>
+
 <script src="app/casper/methods/casper_templates.js"></script>
-<script src="media/js/main.js"></script>
+<script src="app/workspace/workspace_template.js"></script>
+
+
 <script type="text/javascript">
+var wsTMP =
+          '{{#each myTest}}' +
+            '<li class="casp-block">' +
+              '<div class="casp-heading">' +
+                '<span class="casp-title">{{title}}</span>' +
+                '<span class="label">{{options.msg}}</span>' +
+                '<a href="#">edit</a>' +
+                '<i class="fa fa-chevron-down toggle-btn"></i>' +
+              '</div>' +
+              '{{#if children}}' +
+                '<ul class="toggle-1">' +
+                  '{{#each children}}' +
+                    '<li class="casp-block">' +
+                      '<div class="casp-heading">' +
+                        '<span class="casp-title">{{title}}</span>' +
+                        '<span class="label">{{options.msg}}</span>' +
+                        '<a href="#">edit</a>' +
+                        '<i class="fa fa-chevron-down toggle-btn"></i>' +
+                      '</div>' +
+                      '{{#if children}}' +
+                        '<ul>' +
+                          '{{#each children}}' +
+                            '<li class="casp-block">' +
+                              '<div class="casp-heading">' +
+                                '<span class="casp-title">{{title}}</span>' +
+                                '<span class="label">{{options.msg}}</span>' +
+                                '<a href="#">edit</a>' +
+                                '<i class="fa fa-chevron-down toggle-btn"></i>' +
+                              '</div>' +
+                            '</li>' +
+                          '{{/each}}' +
+                        '</ul>' +
+                      '{{/if}}' +
+                    '</li>' +
+                  '{{/each}}' +
+                '</ul>' +
+              '{{/if}}' +
+            '</li>' +
+          '{{/each}}';
+
+
+
+
+
 
 var theData =
 {
   myTest: [
     {
-      title: "start()",
+      title: "start",
       options: {
           msg: "This is the beginning",
           url: "http://google.com"
@@ -163,4 +177,5 @@ var theData =
   ]
 };
 </script>
+<script src="media/js/main.js"></script>
 </html>

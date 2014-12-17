@@ -1,5 +1,10 @@
 var blocks = {
   start: {
+    title: "start",
+    options: {
+      msg: '',
+      url: 'http:google.com/'
+    }
 
   },
   then: {
@@ -10,14 +15,28 @@ var blocks = {
 
       }
     }
-  },
-
-  click: {
-    title: "click"
-  },
-
-  capture: {
-
   }
+};
 
+var actions = {
+  capture: {
+    title: "capture",
+    options: {
+      file: 'capture.png',
+      position: {
+        top: 100,
+        left: 100
+      },
+      dimensions: {
+        height: 400,
+        width: 500
+      }
+    }
+  },
+  click: {
+    title: "click",
+    options: {
+      selector: 'h3.r a'
+    }
+  }
 };

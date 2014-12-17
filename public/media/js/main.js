@@ -79,11 +79,24 @@ $("ul.workspace-blocks").sortable({
 
 
 // Load test object into workspace
-function update() {
-  var source = $("#hb-workspace").html();
+function updateWS() {
+  //var source = $("#hb-workspace").html();
+  var source = '{{wsTMP}}';
+  console.log(source);
   var template = Handlebars.compile(source);
-  $("#workspace-block-1").html('').append(template(theData));
+  //template({});
+  $("#workspace-block-1").append(template(theData));
 }
+
+function updateCP() {
+  var source = $("#hb-code-preview").html();
+  console.log(source);
+  var template = Handlebars.compile(source);
+  //template({});
+  $("#code-preview-code").append(template(theData));
+}
+
 $(function() {
-  update();
-})
+//  updateWS();
+//  updateCP();
+});

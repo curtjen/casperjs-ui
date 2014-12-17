@@ -1,19 +1,22 @@
 // Collapse / un-collapse workspace blocks
-$( ".toggle-btn" ).bind('click',function() {
-  var toggle = $(this);
-  var ref = toggle.data('ref');
+function wsNesting () {
+  $( ".toggle-btn" ).unbind();
+  $( ".toggle-btn" ).bind('click',function() {
+    var toggle = $(this);
+    var ref = toggle.data('ref');
 
-  if (toggle.hasClass('fa-chevron-down')){
-    toggle.removeClass('fa-chevron-down')
-     .addClass('fa-chevron-left');
-    $(".toggle-"+ref).slideUp();
-  }
-  else{
-    toggle.removeClass('fa-chevron-left')
-     .addClass('fa-chevron-down');
-    $(".toggle-"+ref).slideDown();
-  }
-});
+    if (toggle.hasClass('fa-chevron-down')){
+      toggle.removeClass('fa-chevron-down')
+       .addClass('fa-chevron-left');
+      $(".toggle-"+ref).slideUp();
+    }
+    else{
+      toggle.removeClass('fa-chevron-left')
+       .addClass('fa-chevron-down');
+      $(".toggle-"+ref).slideDown();
+    }
+  });
+}
 
 
 // Tabs for block icons
@@ -86,4 +89,5 @@ function update() {
 }
 $(function() {
   update();
-})
+  wsNesting();
+});

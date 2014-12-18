@@ -2,8 +2,9 @@
 <html>
 <head>
   <title>CasperJS-UI</title>
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
+   
   <link rel="stylesheet" href="media/css/prism/prism.css">
   <link rel="stylesheet" href="media/css/main.css">
 
@@ -51,8 +52,34 @@
           </li>
         </ul>
       </div>
-      <div id="tab-actions" class="tab"></div>
-      <div id="tab-assertions" class="tab"></div>
+
+      <div id="tab-actions" class="tab">
+        <ul class="tab-widgets">
+          <li class="btn">
+            <span class="widget-title">assertTitleMatch()</span>
+            <div class="casp-heading" style="display: none;">
+              <span class="casp-title">assertTitleMatch()</span>
+              <span class="label">LABEL</span>
+              <a href="#">edit</a>
+              <i class="fa fa-chevron-down toggle-btn" data-ref="1"></i>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div id="tab-assertions" class="tab">
+        <ul class="tab-widgets">
+          <li class="btn">
+            <span class="widget-title">click()</span>
+            <div class="casp-heading" style="display: none;">
+              <span class="casp-title">click()</span>
+              <span class="label">LABEL</span>
+              <a href="#">edit</a>
+              <i class="fa fa-chevron-down toggle-btn" data-ref="1"></i>
+            </div>
+          </li>
+        </ul>
+      </div>
     </section>
     <section id="workspace">
 
@@ -65,7 +92,7 @@
                 <span class="casp-title">{{title}}</span>
                 <span class="label">{{options.msg}}</span>
                 <a href="#">edit</a>
-                <i class="fa fa-chevron-down toggle-btn"></i>
+                <i class="fa fa-chevron-down toggle-btn" data-ref="{{ref}}"></i>
               </div>
               {{#if children}}
                 <ul class="toggle-1">
@@ -75,7 +102,7 @@
                         <span class="casp-title">{{title}}</span>
                         <span class="label">{{options.msg}}</span>
                         <a href="#">edit</a>
-                        <i class="fa fa-chevron-down toggle-btn"></i>
+                        <i class="fa fa-chevron-down toggle-btn" data-ref="{{ref}}"></i>
                       </div>
                       {{#if children}}
                         <ul>
@@ -85,7 +112,7 @@
                                 <span class="casp-title">{{title}}</span>
                                 <span class="label">{{options.msg}}</span>
                                 <a href="#">edit</a>
-                                <i class="fa fa-chevron-down toggle-btn"></i>
+                                <i class="fa fa-chevron-down toggle-btn" data-ref="{{ref}}"></i>
                               </div>
                             </li>
                           {{/each}}
@@ -153,6 +180,7 @@ var theData =
   myTest: [
     {
       title: "start()",
+      ref: "e2e",
       options: {
           msg: "This is the beginning",
           url: "http://google.com"
@@ -160,12 +188,14 @@ var theData =
       children: [
         {
           title: "then()",
+          ref: "ab1",
           options: {
             msg: "## then it started."
           },
           children: [
             {
               title: "click()",
+              ref: "et9",
               options: {
                 msg: "### clicked it"
               }
@@ -173,6 +203,7 @@ var theData =
             },
             {
               title: "capture()",
+              ref: "8eh",
               options: {
                 msg: "### capture taken."
               }
@@ -182,12 +213,14 @@ var theData =
         },
         {
           title: "then()",
+          ref: "e3h",
           options: {
             msg: "## then it continued."
           },
           children: [
             {
               title: "click()",
+              ref: "te9",
               options: {
                 msg: "### clicked something else"
               }

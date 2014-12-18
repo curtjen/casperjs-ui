@@ -19,7 +19,11 @@ a {
   box-shadow: 0px 0px 2px 0px #0b0b0b;
   height: 2em;
   line-height: 1.75em;
-  padding: 0.1em 0.25em; }
+  padding: 0.1em 0.25em;
+  cursor: pointer; }
+  .btn:hover {
+    background: #D8B699;
+    text-shadow: none; }
 
 #main {
   position: relative; }
@@ -53,7 +57,7 @@ a {
     display: inline-block;
     margin-right: 0.5em; }
   #sidebar-left #casp-tabs li:hover {
-    background: red; }
+    background: #D8B699; }
 
 .tab-widgets li {
   display: inline-block;
@@ -73,8 +77,9 @@ a {
   margin-left: 33%;
   height: 100vh; }
   #workspace .casp-heading {
-    background: #D8B699;
-    margin-bottom: 0.5em; }
+    background: #d3d3d3;
+    margin-bottom: 0.5em;
+    padding: 0.25em; }
   #workspace ul {
     list-style: none;
     margin-left: 2em; }
@@ -103,11 +108,15 @@ a {
     display: block;
     width: 100%;
     height: 100vh; }
+    #sidebar-right #code-preview-cont .heading {
+      padding: 0.5em; }
     #sidebar-right #code-preview-cont #code-preview {
       vertical-align: top;
       display: block;
       width: 100%;
       height: 100vh; }
+    #sidebar-right #code-preview-cont pre.language-javascript {
+      border-radius: 0; }
 
 header.heading * {
   display: inline-block; }
@@ -116,7 +125,6 @@ header.heading * {
   cursor: pointer; }
 
 .placeholder {
-  heigt: 10em;
   display: inline-block; }
   .placeholder:after {
     content: '.......'; }
@@ -134,9 +142,26 @@ body.dragging, body.dragging * {
   display: none; }
 
 #ui-tabs-nav {
-  color: red; }
+  color: #D8B699; }
 
-.yo {
-  color: red !important;
-  height: 10em;
-  background: yellow; }
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+  color: #fff;
+  background: #210800;
+  padding: 0.25em; }
+
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+  color: #210800;
+  background: #fff;
+  border: 0;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px; }
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+  border: 0;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px; }
+
+.ui-widget-header {
+  background: #fff;
+  border: 0;
+  padding-top: 0.5em; }

@@ -1,6 +1,6 @@
 // Collapse / un-collapse workspace blocks
 function wsNesting () {
-  $( ".toggle-btn" ).unbind();
+  $( ".toggle-btn" ).unbind('click');
   $( ".toggle-btn" ).bind('click',function() {
     var toggle = $(this);
     var ref = toggle.data('ref');
